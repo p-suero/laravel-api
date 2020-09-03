@@ -25,7 +25,7 @@ class CheckApiToken
         }
 
         $api_token = substr($auth_header, 7);
-        $user = User::where("api_token" , $api_token);
+        $user = User::where("api_token" , $api_token)->first();
         if (empty($user)) {
             return response()->json([
                 'success' => false,
